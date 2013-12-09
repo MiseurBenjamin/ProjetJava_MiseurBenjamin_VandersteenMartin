@@ -4,7 +4,7 @@ import javax.swing.JPanel;
  
 public class EditLevel extends JFrame {
   public EditLevel(){             
-    this.setTitle("Ma première fenêtre Java");
+    this.setTitle("Editeur de niveaux");
     this.setSize(685, 535); //20*34 / 15 * 34
     this.setLocationRelativeTo(null); 
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
