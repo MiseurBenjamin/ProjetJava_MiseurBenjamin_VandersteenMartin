@@ -11,6 +11,10 @@ public class EditLevel extends JFrame {
     this.setContentPane(new Panneau());   
     this.setResizable(false);
     this.setVisible(true);
+    
+    //gskrngdsnsodkn^sdlfknb sdknh^psdnh^sdh
+    //gsdkhpsdlfkhsdlfhjdslkfh,ds^fkhjsdfljhsdjhskdd
+    //gdsrgsdgsdrg
   }       
   
   public static void main(String[] args){
