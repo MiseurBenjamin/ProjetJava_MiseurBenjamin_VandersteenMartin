@@ -1,24 +1,22 @@
+package LevelEditor;
 import java.awt.Color; 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
  
-public class EditLevel extends JFrame {
-  public EditLevel(){             
+public class MainFrame extends JFrame {
+  public MainFrame(){             
     this.setTitle("Editeur de niveaux");
-    this.setSize(685, 535); //20*34 / 15 * 34
+    this.setSize(685, 535); //20*34 / 15 * 34    685*535
     this.setLocationRelativeTo(null); 
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setContentPane(new Panneau());   
+    this.setContentPane(new PanneauEditeur());   
     this.setResizable(false);
     this.setVisible(true);
-    
-    //gskrngdsnsodkn^sdlfknb sdknh^psdnh^sdh
-    //gsdkhpsdlfkhsdlfhjdslkfh,ds^fkhjsdfljhsdjhskdd
-    //gdsrgsdgsdrg
   }       
   
   public static void main(String[] args){
-	    EditLevel fenetre = new EditLevel();
+	    MainFrame fenetre = new MainFrame();
 	    fenetre.setVisible(true);
 	  }   
 }

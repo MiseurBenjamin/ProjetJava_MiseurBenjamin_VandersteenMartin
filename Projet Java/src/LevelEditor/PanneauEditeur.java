@@ -1,8 +1,8 @@
+package LevelEditor;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -14,13 +14,13 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
  
 @SuppressWarnings("serial")
-public class Panneau extends JPanel { 
+public class PanneauEditeur extends JPanel { 
 	DataOutputStream dos = null;
 	Image block;
 	Image fond;
 	level niveau;
 	
-	public Panneau(){
+	public PanneauEditeur(){
 		super();
 		try {
 			block = ImageIO.read(new File("img/block.png"));
