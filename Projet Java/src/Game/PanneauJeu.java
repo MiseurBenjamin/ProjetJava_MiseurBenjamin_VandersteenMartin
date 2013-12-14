@@ -7,11 +7,13 @@ import javax.swing.JPanel;
 import LevelEditor.level;
 
 @SuppressWarnings("serial")
-public class PanneauJeu extends JPanel{
+public class PanneauJeu extends JPanel implements KeyListener{
 	level niveau = new level();
 	private static ArrayList<Block> blocks;
 	
 	public PanneauJeu(){
+		setFocusable(true);
+		addKeyListener(this);
 		
 	}
 }
