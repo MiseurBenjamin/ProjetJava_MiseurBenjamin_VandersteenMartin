@@ -6,17 +6,25 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 public class Player {
-	private int x,y;
+	private int x,y,num;
 	private String playerDir = "BAS";
 	Image playerCurrentImage;
-	ImageIcon playerBas = new ImageIcon("img/player1.png");
-	ImageIcon playerGauche = new ImageIcon("img/player1.png");
-	ImageIcon playerDroite = new ImageIcon("img/player1.png");
-	ImageIcon playerHaut = new ImageIcon("img/player1.png");
+	ImageIcon playerBas;
+	ImageIcon playerGauche;
+	ImageIcon playerDroite;
+	ImageIcon playerHaut;
 	
-	public Player(int startX,int startY){
+	public Player(int startX,int startY,int numPlayer){
 		x = startX;
 		y = startY;
+		if((numPlayer=1)||(numPlayer=2)){
+			num = numPlayer;
+		}
+		else num = 2;
+		ImageIcon playerBas = new ImageIcon("img/player"+this.num+".png");
+		ImageIcon playerGauche = new ImageIcon("img/player"+this.num+".png");
+		ImageIcon playerDroite = new ImageIcon("img/player"+this.num+".png");
+		ImageIcon playerHaut = new ImageIcon("img/player"+this.num+".png");		
 	}
 	
 	public Rectangle getBounds(){
