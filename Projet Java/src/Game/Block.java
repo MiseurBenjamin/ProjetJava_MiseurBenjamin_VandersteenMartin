@@ -7,13 +7,12 @@ import javax.swing.ImageIcon;
 
 public class Block {
 	private int x,y;
-	Image block;
+	static ImageIcon IIblock = new ImageIcon("./img/block.png");
+	static private Image block = IIblock.getImage();
 	
 	public Block(int X,int Y){
 		this.x = X;
 		this.y = Y;
-		ImageIcon IIblock = new ImageIcon("img/block.png");
-		block = IIblock.getImage();
 	}
 	
 	public Rectangle getBounds(){

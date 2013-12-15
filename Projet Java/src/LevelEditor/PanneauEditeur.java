@@ -23,8 +23,8 @@ public class PanneauEditeur extends JPanel {
 	public PanneauEditeur(){
 		super();
 		try {
-			block = ImageIO.read(new File("img/block.png"));
-			fond = ImageIO.read(new File("img/fond.png"));
+			block = ImageIO.read(new File("./img/block.png"));
+			fond = ImageIO.read(new File("./img/fond.png"));
 			niveau = new level();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -33,11 +33,7 @@ public class PanneauEditeur extends JPanel {
 		addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-            	int x = e.getX();
-            	int y = e.getY();
-            	x = x/34;
-            	y = y/34;
-            	niveau.inverserLvl(x, y);
+            	niveau.inverserLvl(e.getX()/34,e.getY()/34);
             	repaint();
             	save();	
             }
@@ -49,7 +45,7 @@ public class PanneauEditeur extends JPanel {
 			dos = new DataOutputStream(
 			        new BufferedOutputStream(
 			         new FileOutputStream(
-			           new File("lvl/level.txt"))));
+			           new File("./lvl/level.txt"))));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

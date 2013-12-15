@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 public class Player {
-	private int x,y,num;
+	private int x,y,num,life=3;
 	private String playerDir = "BAS";
 	Image playerCurrentImage;
 	ImageIcon playerBas;
@@ -17,16 +17,24 @@ public class Player {
 	public Player(int startX,int startY,int numPlayer){
 		x = startX;
 		y = startY;
-		if((numPlayer=1)||(numPlayer=2)){
+		if((numPlayer==1)||(numPlayer==2)){
 			num = numPlayer;
 		}
 		else num = 2;
-		ImageIcon playerBas = new ImageIcon("img/player"+this.num+".png");
-		ImageIcon playerGauche = new ImageIcon("img/player"+this.num+".png");
-		ImageIcon playerDroite = new ImageIcon("img/player"+this.num+".png");
-		ImageIcon playerHaut = new ImageIcon("img/player"+this.num+".png");		
+		playerBas = new ImageIcon("./img/player"+this.num+".png");
+		playerGauche = new ImageIcon("./img/player"+this.num+".png");
+		playerDroite = new ImageIcon("./img/player"+this.num+".png");
+		playerHaut = new ImageIcon("./img/player"+this.num+".png");		
 	}
 	
+	public int getLife() {
+		return life;
+	}
+
+	public void setLife(int life) {
+		this.life = life;
+	}
+
 	public Rectangle getBounds(){
 		Rectangle box = new Rectangle(x,y,34,34);
 		return box;
@@ -47,6 +55,14 @@ public class Player {
 	public void setY(int newY) {
 		this.y = newY;
 	}
+	
+	public void addY(int add){
+		this.y += add;
+	}
+	
+	public void addX(int add){
+		this.x += add;
+	}	
 
 	public String getPlayerDir() {
 		return playerDir;
@@ -73,18 +89,18 @@ public class Player {
 		
 	}
 	
-	public void Move(){
+	public void Move(){ //test avec 5px de déplacement
 		if(playerDir == "BAS"){
-			this.y+=34;
+			this.y+=5;
 		}
 		if(playerDir == "HAUT"){
-			this.y-=34;
+			this.y-=5;
 		}
 		if(playerDir == "GAUCHE"){
-			this.x-=34;
+			this.x-=5;
 		}
 		if(playerDir == "DROITE"){
-			this.x+=34;
+			this.x+=5;
 		}		
 	}
 	

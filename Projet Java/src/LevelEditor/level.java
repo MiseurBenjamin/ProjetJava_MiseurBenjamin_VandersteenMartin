@@ -2,6 +2,7 @@ package LevelEditor;
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,7 +20,7 @@ public class level {
 			dis = new DataInputStream(
 			        new BufferedInputStream(
 			                 new FileInputStream(
-			                   new File("lvl/level.txt"))));
+			                   new File("./lvl/level.txt"))));
 			for(int i = 0;i<20;i++){
 		    	  for(int j = 0;j<15;j++){
 		    		  lvl[i][j] = dis.readInt();
@@ -28,8 +29,11 @@ public class level {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("File not found level");
+			new FileInit();
+		} catch (EOFException e) {
+			new FileInit();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
