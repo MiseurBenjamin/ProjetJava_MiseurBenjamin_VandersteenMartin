@@ -1,25 +1,31 @@
 package Game;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import LevelEditor.level;
 
 @SuppressWarnings("serial")
-public class PanneauJeu extends JPanel implements KeyListener{
+public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	level niveau = new level();
+	private final Timer timer = new Timer(40,this);
 	static private ArrayList<Block> blocks = new ArrayList<Block>();
 	static private ArrayList<Fond> fonds = new ArrayList<Fond>();
 	static private ArrayList<Shot> shots = new ArrayList<Shot>();
 	Player CurrentPlayer;
 	Player player1,player2;
+	int p1Points,p2Points=0;
     Block block;
     Fond fond;
     Shot shot;
@@ -28,7 +34,6 @@ public class PanneauJeu extends JPanel implements KeyListener{
 		setFocusable(true);
 		addKeyListener(this);
 		initArrayList();
-		repaint();	
 	}
 	
 	public void initArrayList(){
@@ -69,12 +74,16 @@ public class PanneauJeu extends JPanel implements KeyListener{
 				
 			}
 		}
+		player1.setLife(3);
+		player2.setLife(3);
 		repaint();
+		timer.start();
 	}
 	
-	public void paint(Graphics g){
+	public void paint(Graphics g){ 
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
+		g2d.setFont(new Font("SansSerif", Font.BOLD, 20));
 		for(int i=0;i < blocks.size();i++){
 			block = blocks.get(i);
 			g2d.drawImage(block.getImage(),block.getX(),block.getY(),null);
@@ -91,9 +100,23 @@ public class PanneauJeu extends JPanel implements KeyListener{
 		
 		g2d.drawImage(player1.getImage(),player1.getX(),player1.getY(),null);
 		g2d.drawImage(player2.getImage(),player2.getX(),player2.getY(),null);
+		g.drawString("P1: "+p1Points+" Points",10,500);
+		g.drawString("P2: "+p2Points+" Points",525,500);
+		
+		
+		if(player2.getLife()<=0){
+			p1Points+=1;
+			timer.stop();
+			initArrayList();
+		}
+		if(player1.getLife()<=0){
+			p2Points+=1;
+			timer.stop();
+			initArrayList();
+		}
 		
 		}
-
+	
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		int key = arg0.getKeyCode();
@@ -146,25 +169,55 @@ public class PanneauJeu extends JPanel implements KeyListener{
 				Rectangle BlockRec = block.getBounds();
 				if(player1Rec.intersects(BlockRec)){
 					String PlayerDir = player1.getPlayerDir();
-					if( PlayerDir=="BAS") player1.addY(-5);
-					if( PlayerDir=="HAUT") player1.addY(+5);
-					if( PlayerDir=="GAUCHE") player1.addX(+5);
-					if( PlayerDir=="DROITE") player1.addX(-5);					
+					if( PlayerDir=="BAS") player1.addY(-6);
+					if( PlayerDir=="HAUT") player1.addY(+6);
+					if( PlayerDir=="GAUCHE") player1.addX(+6);
+					if( PlayerDir=="DROITE") player1.addX(-6);					
 				}
 				if(player2Rec.intersects(BlockRec)){
 					String PlayerDir = player1.getPlayerDir();
-					if( PlayerDir=="BAS") player1.addY(-5);
-					if( PlayerDir=="HAUT") player1.addY(+5);
-					if( PlayerDir=="GAUCHE") player1.addX(+5);
-					if( PlayerDir=="DROITE") player1.addX(-5);					
+					if( PlayerDir=="BAS") player1.addY(-6);
+					if( PlayerDir=="HAUT") player1.addY(+6);
+					if( PlayerDir=="GAUCHE") player1.addX(+6);
+					if( PlayerDir=="DROITE") player1.addX(-6);					
+				}
+				for(int j = 0;j < shots.size();j++){
+					shot = shots.get(j);
+					Rectangle ShotRec = shot.getBounds();
+					if(BlockRec.intersects(ShotRec)) shots.remove(j);				
 				}
 			}
+			for(int j = 0;j < shots.size();j++){
+				shot = shots.get(j);
+				Rectangle ShotRec = shot.getBounds();
+				int num = shot.getNum();
+				if(num==1){
+					if(ShotRec.intersects(player2Rec)){
+						player2.addLife(-1);
+						shots.remove(j);
+					}
+				}
+				else if(num==2){
+					if(ShotRec.intersects(player1Rec)){
+						player1.addLife(-1);
+						shots.remove(j);
+					}
+				}
+			}
+			
 			if(player1Rec.intersects(player2Rec)){
 				String PlayerDir = player1.getPlayerDir();
-				if( PlayerDir=="BAS") player1.addY(-5);
-				if( PlayerDir=="HAUT") player1.addY(+5);
-				if( PlayerDir=="GAUCHE") player1.addX(+5);
-				if( PlayerDir=="DROITE") player1.addX(-5);					
+				if( PlayerDir=="BAS") player1.addY(-8);
+				if( PlayerDir=="HAUT") player1.addY(+8);
+				if( PlayerDir=="GAUCHE") player1.addX(+8);
+				if( PlayerDir=="DROITE") player1.addX(-8);					
 			}
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			repaint();
+			CheckCollision();
 		}
 	}

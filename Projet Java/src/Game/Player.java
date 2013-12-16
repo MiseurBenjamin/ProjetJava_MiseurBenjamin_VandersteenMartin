@@ -34,9 +34,13 @@ public class Player {
 	public void setLife(int life) {
 		this.life = life;
 	}
+	
+	public void addLife(int life){
+		this.life += life;
+	}
 
 	public Rectangle getBounds(){
-		Rectangle box = new Rectangle(x,y,34,34);
+		Rectangle box = new Rectangle(x,y,34,31);
 		return box;
 	}
 
@@ -91,16 +95,16 @@ public class Player {
 	
 	public void Move(){ //test avec 5px de déplacement
 		if(playerDir == "BAS"){
-			this.y+=5;
+			this.y+=6;
 		}
 		if(playerDir == "HAUT"){
-			this.y-=5;
+			this.y-=6;
 		}
 		if(playerDir == "GAUCHE"){
-			this.x-=5;
+			this.x-=6;
 		}
 		if(playerDir == "DROITE"){
-			this.x+=5;
+			this.x+=6;
 		}		
 	}
 	

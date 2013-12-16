@@ -1,6 +1,7 @@
 package Game;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
@@ -24,6 +25,11 @@ public class Shot {
 		if(Dir=="DROITE") this.x+=11;
 	}
 	
+	public Rectangle getBounds(){
+		Rectangle box = new Rectangle(x,y,16,16);
+		return box;
+	}
+	
 	public Image getImage(){
 		return shot;
 	}
@@ -34,5 +40,9 @@ public class Shot {
 
 	public int getY() {
 		return y;
+	}
+
+	public int getNum() {
+		return num;
 	}
 }
