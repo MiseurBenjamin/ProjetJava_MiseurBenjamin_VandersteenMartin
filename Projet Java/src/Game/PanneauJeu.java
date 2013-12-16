@@ -277,6 +277,9 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 				if( PlayerDir=="DROITE") player1.addX(-4);					
 			}
 			if((player1.getY()>535)||(player1.getY()<0)) initArrayList();
+			if((player1.getX()>685)||(player1.getX()<0)) initArrayList();
+			if((player2.getY()>535)||(player2.getY()<0)) initArrayList();
+			if((player2.getX()>685)||(player2.getY()<0)) initArrayList();
 		}
 
 		@Override
