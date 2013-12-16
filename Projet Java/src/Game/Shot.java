@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 public class Shot {
 	private int x,y,num;
 	private String Dir = "BAS";
-	ImageIcon IIshot = new ImageIcon("./img/shot1.png");
+	ImageIcon IIshot = new ImageIcon(getClass().getResource("/img/shot1.png"));
 	private Image shot = IIshot.getImage();
 	
 	public Shot(int X,int Y,int Number,String Dir){

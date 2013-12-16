@@ -6,8 +6,8 @@ import javax.swing.ImageIcon;
 
 public class Fond {
 	private int x,y;
-	static ImageIcon IIfond = new ImageIcon("./img/fond.png");
-	static private Image fond = IIfond.getImage();
+	ImageIcon IIfond = new ImageIcon(getClass().getResource("/img/fond.png"));
+	private Image fond = IIfond.getImage();
 	
 	public Fond(int X,int Y){
 		this.x = X;

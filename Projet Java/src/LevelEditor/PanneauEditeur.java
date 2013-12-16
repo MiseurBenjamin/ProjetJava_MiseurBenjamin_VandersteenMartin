@@ -10,26 +10,21 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
  
 @SuppressWarnings("serial")
 public class PanneauEditeur extends JPanel { 
 	DataOutputStream dos = null;
-	Image block;
-	Image fond;
+	ImageIcon IIblock = new ImageIcon(getClass().getResource("/img/block.png"));
+	private Image block = IIblock.getImage();
+	ImageIcon IIfond = new ImageIcon(getClass().getResource("/img/fond.png"));
+	private Image fond = IIfond.getImage();
 	level niveau;
 	
 	public PanneauEditeur(){
 		super();
-		try {
-			block = ImageIO.read(new File("./img/block.png"));
-			fond = ImageIO.read(new File("./img/fond.png"));
-			niveau = new level();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		niveau = new level();
 		addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -45,7 +40,7 @@ public class PanneauEditeur extends JPanel {
 			dos = new DataOutputStream(
 			        new BufferedOutputStream(
 			         new FileOutputStream(
-			           new File("./lvl/level.txt"))));
+			           new File("level.txt"))));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -54,7 +49,6 @@ public class PanneauEditeur extends JPanel {
 	    	  for(int j = 0;j<15;j++){
 	    		  try {
 					dos.writeInt(niveau.getLvl()[i][j]);
-					System.out.println(niveau.getLvl()[i][j]);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

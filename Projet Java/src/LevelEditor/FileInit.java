@@ -16,7 +16,7 @@ public class FileInit {
 			dos = new DataOutputStream(
 			        new BufferedOutputStream(
 			                 new FileOutputStream(
-			                   new File("./lvl/level.txt"))));
+			                   new File("./level.txt"))));
 			for(int i = 0;i<20;i++){
 		    	  for(int j = 0;j<15;j++){
 		    		  try {

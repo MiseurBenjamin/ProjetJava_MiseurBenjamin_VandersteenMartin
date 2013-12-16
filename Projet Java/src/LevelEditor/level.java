@@ -20,7 +20,7 @@ public class level {
 			dis = new DataInputStream(
 			        new BufferedInputStream(
 			                 new FileInputStream(
-			                   new File("./lvl/level.txt"))));
+			                   new File("level.txt"))));
 			for(int i = 0;i<20;i++){
 		    	  for(int j = 0;j<15;j++){
 		    		  lvl[i][j] = dis.readInt();

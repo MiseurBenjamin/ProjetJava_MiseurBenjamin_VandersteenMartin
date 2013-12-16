@@ -18,7 +18,7 @@ import LevelEditor.level;
 @SuppressWarnings("serial")
 public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	level niveau = new level();
-	private final Timer timer = new Timer(40,this);
+	private final Timer timer = new Timer(25,this);
 	static private ArrayList<Block> blocks = new ArrayList<Block>();
 	static private ArrayList<Fond> fonds = new ArrayList<Fond>();
 	static private ArrayList<Shot> shots = new ArrayList<Shot>();
@@ -121,34 +121,99 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 		int key = arg0.getKeyCode();
 		if(key == KeyEvent.VK_DOWN){
 			player1.setPlayerDir("BAS");
-			player1.Move();
+			player1.setBas(true);
 			CheckCollision();
 		}
 		else if(key == KeyEvent.VK_UP){
 			player1.setPlayerDir("HAUT");
-			player1.Move();
+			player1.setHaut(true);
 			CheckCollision();
 		}
 		else if(key == KeyEvent.VK_LEFT){
 			player1.setPlayerDir("GAUCHE");
-			player1.Move();
+			player1.setGauche(true);
 			CheckCollision();
 		}
 		else if(key == KeyEvent.VK_RIGHT){
 			player1.setPlayerDir("DROITE");
-			player1.Move();
+			player1.setDroite(true);
 			CheckCollision();
-		}	
+		}
+		else if(key == KeyEvent.VK_Z){
+			player2.setPlayerDir("HAUT");
+			player2.setHaut(true);
+			CheckCollision();
+		}
+		else if(key == KeyEvent.VK_Q){
+			player2.setPlayerDir("GAUCHE");
+			player2.setGauche(true);
+			CheckCollision();
+		}
+		else if(key == KeyEvent.VK_S){
+			player2.setPlayerDir("BAS");
+			player2.setBas(true);
+			CheckCollision();
+		}
+		else if(key == KeyEvent.VK_D){
+			player2.setPlayerDir("DROITE");
+			player2.setDroite(true);
+			CheckCollision();
+		}
 		
 		repaint();
 	}
 
 		@Override
 		public void keyReleased(KeyEvent arg0) {
-			if(arg0.getKeyCode() == KeyEvent.VK_SPACE){
+			int key = arg0.getKeyCode();
+			if(key == KeyEvent.VK_SPACE){
 				shot = new Shot(player1.getX(),player1.getY(),1,player1.getPlayerDir());
 				shots.add(shot);
-			}			
+			}	
+			else if(key == KeyEvent.VK_SHIFT){
+				shot = new Shot(player2.getX(),player2.getY(),2,player2.getPlayerDir());
+				shots.add(shot);
+			}	
+			else if(key == KeyEvent.VK_DOWN){
+				player1.setPlayerDir("BAS");
+				player1.setBas(false);
+				CheckCollision();
+			}
+			else if(key == KeyEvent.VK_UP){
+				player1.setPlayerDir("HAUT");
+				player1.setHaut(false);
+				CheckCollision();
+			}
+			else if(key == KeyEvent.VK_LEFT){
+				player1.setPlayerDir("GAUCHE");
+				player1.setGauche(false);
+				CheckCollision();
+			}
+			else if(key == KeyEvent.VK_RIGHT){
+				player1.setPlayerDir("DROITE");
+				player1.setDroite(false);
+				CheckCollision();
+			}
+			else if(key == KeyEvent.VK_Z){
+				player2.setPlayerDir("HAUT");
+				player2.setHaut(false);
+				CheckCollision();
+			}
+			else if(key == KeyEvent.VK_Q){
+				player2.setPlayerDir("GAUCHE");
+				player2.setGauche(false);
+				CheckCollision();
+			}
+			else if(key == KeyEvent.VK_S){
+				player2.setPlayerDir("BAS");
+				player2.setBas(false);
+				CheckCollision();
+			}
+			else if(key == KeyEvent.VK_D){
+				player2.setPlayerDir("DROITE");
+				player2.setDroite(false);
+				CheckCollision();
+			}
 		}
 	
 		@Override
@@ -168,17 +233,17 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 				Rectangle BlockRec = block.getBounds();
 				if(player1Rec.intersects(BlockRec)){
 					String PlayerDir = player1.getPlayerDir();
-					if( PlayerDir=="BAS") player1.addY(-6);
-					if( PlayerDir=="HAUT") player1.addY(+6);
-					if( PlayerDir=="GAUCHE") player1.addX(+6);
-					if( PlayerDir=="DROITE") player1.addX(-6);					
+					if( PlayerDir=="BAS") player1.addY(-4);
+					if( PlayerDir=="HAUT") player1.addY(+4);
+					if( PlayerDir=="GAUCHE") player1.addX(+4);
+					if( PlayerDir=="DROITE") player1.addX(-4);					
 				}
 				if(player2Rec.intersects(BlockRec)){
-					String PlayerDir = player1.getPlayerDir();
-					if( PlayerDir=="BAS") player1.addY(-6);
-					if( PlayerDir=="HAUT") player1.addY(+6);
-					if( PlayerDir=="GAUCHE") player1.addX(+6);
-					if( PlayerDir=="DROITE") player1.addX(-6);					
+					String PlayerDir = player2.getPlayerDir();
+					if( PlayerDir=="BAS") player2.addY(-4);
+					if( PlayerDir=="HAUT") player2.addY(+4);
+					if( PlayerDir=="GAUCHE") player2.addX(+4);
+					if( PlayerDir=="DROITE") player2.addX(-4);					
 				}
 				for(int j = 0;j < shots.size();j++){
 					shot = shots.get(j);
@@ -206,16 +271,19 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 			
 			if(player1Rec.intersects(player2Rec)){
 				String PlayerDir = player1.getPlayerDir();
-				if( PlayerDir=="BAS") player1.addY(-8);
-				if( PlayerDir=="HAUT") player1.addY(+8);
-				if( PlayerDir=="GAUCHE") player1.addX(+8);
-				if( PlayerDir=="DROITE") player1.addX(-8);					
+				if( PlayerDir=="BAS") player1.addY(-4);
+				if( PlayerDir=="HAUT") player1.addY(+4);
+				if( PlayerDir=="GAUCHE") player1.addX(+4);
+				if( PlayerDir=="DROITE") player1.addX(-4);					
 			}
+			if((player1.getY()>535)||(player1.getY()<0)) initArrayList();
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
+			player1.Move();
+			player2.Move();
 			repaint();
 			CheckCollision();
 		}

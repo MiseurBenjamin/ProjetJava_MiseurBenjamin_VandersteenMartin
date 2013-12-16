@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 
 public class Block {
 	private int x,y;
-	static ImageIcon IIblock = new ImageIcon("./img/block.png");
-	static private Image block = IIblock.getImage();
+	ImageIcon IIblock = new ImageIcon(getClass().getResource("/img/block.png"));
+	private Image block = IIblock.getImage();
 	
 	public Block(int X,int Y){
 		this.x = X;

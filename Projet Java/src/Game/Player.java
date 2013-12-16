@@ -13,6 +13,7 @@ public class Player {
 	ImageIcon playerGauche;
 	ImageIcon playerDroite;
 	ImageIcon playerHaut;
+	boolean haut=false,bas=false,gauche=false,droite=false;
 	
 	public Player(int startX,int startY,int numPlayer){
 		x = startX;
@@ -21,10 +22,10 @@ public class Player {
 			num = numPlayer;
 		}
 		else num = 2;
-		playerBas = new ImageIcon("./img/player"+this.num+".png");
-		playerGauche = new ImageIcon("./img/player"+this.num+".png");
-		playerDroite = new ImageIcon("./img/player"+this.num+".png");
-		playerHaut = new ImageIcon("./img/player"+this.num+".png");		
+		playerBas = new ImageIcon(getClass().getResource("/img/player"+this.num+".png"));
+		playerGauche = new ImageIcon(getClass().getResource("/img/player"+this.num+".png"));
+		playerDroite = new ImageIcon(getClass().getResource("/img/player"+this.num+".png"));
+		playerHaut = new ImageIcon(getClass().getResource("/img/player"+this.num+".png"));		
 	}
 	
 	public int getLife() {
@@ -40,7 +41,7 @@ public class Player {
 	}
 
 	public Rectangle getBounds(){
-		Rectangle box = new Rectangle(x,y,34,31);
+		Rectangle box = new Rectangle(x,y,30,26);
 		return box;
 	}
 
@@ -93,19 +94,51 @@ public class Player {
 		
 	}
 	
-	public void Move(){ //test avec 5px de déplacement
-		if(playerDir == "BAS"){
-			this.y+=6;
+	public void Move(){ //test avec 4px de déplacement
+		if((playerDir == "BAS")&&(bas==true)){
+			this.y+=4;
 		}
-		if(playerDir == "HAUT"){
-			this.y-=6;
+		if((playerDir == "HAUT")&&(haut==true)){
+			this.y-=4;
 		}
-		if(playerDir == "GAUCHE"){
-			this.x-=6;
+		if((playerDir == "GAUCHE")&&(gauche==true)){
+			this.x-=4;
 		}
-		if(playerDir == "DROITE"){
-			this.x+=6;
+		if((playerDir == "DROITE")&&(droite==true)){
+			this.x+=4;
 		}		
+	}
+
+	public boolean isHaut() {
+		return haut;
+	}
+
+	public void setHaut(boolean haut) {
+		this.haut = haut;
+	}
+
+	public boolean isBas() {
+		return bas;
+	}
+
+	public void setBas(boolean bas) {
+		this.bas = bas;
+	}
+
+	public boolean isGauche() {
+		return gauche;
+	}
+
+	public void setGauche(boolean gauche) {
+		this.gauche = gauche;
+	}
+
+	public boolean isDroite() {
+		return droite;
+	}
+
+	public void setDroite(boolean droite) {
+		this.droite = droite;
 	}
 	
 }
