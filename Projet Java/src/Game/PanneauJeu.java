@@ -122,42 +122,34 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 		if(key == KeyEvent.VK_DOWN){
 			player1.setPlayerDir("BAS");
 			player1.setBas(true);
-			CheckCollision();
 		}
 		else if(key == KeyEvent.VK_UP){
 			player1.setPlayerDir("HAUT");
 			player1.setHaut(true);
-			CheckCollision();
 		}
 		else if(key == KeyEvent.VK_LEFT){
 			player1.setPlayerDir("GAUCHE");
 			player1.setGauche(true);
-			CheckCollision();
 		}
 		else if(key == KeyEvent.VK_RIGHT){
 			player1.setPlayerDir("DROITE");
 			player1.setDroite(true);
-			CheckCollision();
 		}
 		else if(key == KeyEvent.VK_Z){
 			player2.setPlayerDir("HAUT");
 			player2.setHaut(true);
-			CheckCollision();
 		}
 		else if(key == KeyEvent.VK_Q){
 			player2.setPlayerDir("GAUCHE");
 			player2.setGauche(true);
-			CheckCollision();
 		}
 		else if(key == KeyEvent.VK_S){
 			player2.setPlayerDir("BAS");
 			player2.setBas(true);
-			CheckCollision();
 		}
 		else if(key == KeyEvent.VK_D){
 			player2.setPlayerDir("DROITE");
 			player2.setDroite(true);
-			CheckCollision();
 		}
 		
 		repaint();
@@ -177,42 +169,34 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 			else if(key == KeyEvent.VK_DOWN){
 				player1.setPlayerDir("BAS");
 				player1.setBas(false);
-				CheckCollision();
 			}
 			else if(key == KeyEvent.VK_UP){
 				player1.setPlayerDir("HAUT");
 				player1.setHaut(false);
-				CheckCollision();
 			}
 			else if(key == KeyEvent.VK_LEFT){
 				player1.setPlayerDir("GAUCHE");
 				player1.setGauche(false);
-				CheckCollision();
 			}
 			else if(key == KeyEvent.VK_RIGHT){
 				player1.setPlayerDir("DROITE");
 				player1.setDroite(false);
-				CheckCollision();
 			}
 			else if(key == KeyEvent.VK_Z){
 				player2.setPlayerDir("HAUT");
 				player2.setHaut(false);
-				CheckCollision();
 			}
 			else if(key == KeyEvent.VK_Q){
 				player2.setPlayerDir("GAUCHE");
 				player2.setGauche(false);
-				CheckCollision();
 			}
 			else if(key == KeyEvent.VK_S){
 				player2.setPlayerDir("BAS");
 				player2.setBas(false);
-				CheckCollision();
 			}
 			else if(key == KeyEvent.VK_D){
 				player2.setPlayerDir("DROITE");
 				player2.setDroite(false);
-				CheckCollision();
 			}
 		}
 	
