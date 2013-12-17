@@ -188,14 +188,14 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 		public void keyReleased(KeyEvent arg0) {
 			int key = arg0.getKeyCode();
 			if(key == KeyEvent.VK_SPACE){
-				shot = new Shot(player1.getX(),player1.getY(),1,player1.getPlayerDir());
+				shot = new Shot(player1.getX(),player1.getY(),1,player1.getPlayerDir());	//Ajout d'un shot à l'arraylist pour le joueur 1
 				shots.add(shot);
 			}	
 			else if(key == KeyEvent.VK_SHIFT){
-				shot = new Shot(player2.getX(),player2.getY(),2,player2.getPlayerDir());
+				shot = new Shot(player2.getX(),player2.getY(),2,player2.getPlayerDir());	//Ajout d'un shot à l'arraylist pour le joueur 2
 				shots.add(shot);
 			}	
-			else if(key == KeyEvent.VK_DOWN){
+			else if(key == KeyEvent.VK_DOWN){		//Booléens de déplacements du joueur1 mis à false
 				player1.setPlayerDir("BAS");
 				player1.setBas(false);
 			}
@@ -211,7 +211,7 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 				player1.setPlayerDir("DROITE");
 				player1.setDroite(false);
 			}
-			else if(key == KeyEvent.VK_Z){
+			else if(key == KeyEvent.VK_Z){			//Booléens de déplacements du joueur2 mis à false
 				player2.setPlayerDir("HAUT");
 				player2.setHaut(false);
 			}
