@@ -52,7 +52,7 @@ public class Player {
 		return box;
 	}
 
-	public int getX() {
+	public int getX() {								//Setters et Getters divers	
 		return x;
 	}
 
@@ -68,7 +68,7 @@ public class Player {
 		this.y = newY;
 	}
 	
-	public void addY(int add){
+	public void addY(int add){						//Setters et Getters divers	
 		this.y += add;
 	}
 	

@@ -19,7 +19,7 @@ import LevelEditor.level;
  * PanneauJeu est la classe qui s'occupe de l'affichage de l'écran de jeu.
  * Elle reçoit les inputs claviers de déplaçement et de tir et les exécutes.
  * Elle utilie un Timer pour effectuer le rafraichissement de l'affichage, les vérifications de collisions et les mouvements à
- * une fréquence de 40Hz.
+ * une fréquence de 1/0.03 Hz.
  * 
  * @author Arkentias
  *
@@ -28,7 +28,7 @@ import LevelEditor.level;
 @SuppressWarnings("serial")
 public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	level niveau = new level(); //La carte du niveau
-	private final Timer timer = new Timer(25,this); //Le timer à 40Hz
+	private final Timer timer = new Timer(30,this); //Le timer à 40Hz
 	static private ArrayList<Block> blocks = new ArrayList<Block>(); //Les blocs et leurs coordonnées
 	static private ArrayList<Fond> fonds = new ArrayList<Fond>(); //Les blocs de fond
 	static private ArrayList<Shot> shots = new ArrayList<Shot>(); //Les tirs en cours de déplacement
