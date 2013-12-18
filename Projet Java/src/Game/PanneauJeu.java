@@ -29,9 +29,9 @@ import LevelEditor.level;
 public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	level niveau = new level(); //La carte du niveau
 	private final Timer timer = new Timer(30,this); //Le timer à 40Hz
-	static private ArrayList<Block> blocks = new ArrayList<Block>(); //Les blocs et leurs coordonnées
-	static private ArrayList<Fond> fonds = new ArrayList<Fond>(); //Les blocs de fond
-	static private ArrayList<Shot> shots = new ArrayList<Shot>(); //Les tirs en cours de déplacement
+	static private ArrayList<Block> blocks; //Les blocs et leurs coordonnées
+	static private ArrayList<Fond> fonds; //Les blocs de fond
+	static private ArrayList<Shot> shots; //Les tirs en cours de déplacement
 	Player CurrentPlayer; //Le joueur actuel, sera utilisé comme pointeur lors de l'ajout du multijoueur en LAN
 	Player player1,player2; //Les 2 personnages et leurs coordonnées, images et points de vie
 	int p1Points,p2Points=0; //Variables contenant les points accumulés par chacun des joueurs
@@ -52,6 +52,9 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	 */
 	public void initArrayList(){
 		int stop1=0,stop2=0,i,j;
+		blocks = new ArrayList<Block>();
+		fonds = new Arrayist<Fond>();
+		shots = new ArrayList<Shot>();
 		int lvlCopy[][] = niveau.getLvl(); //Le tableau à deux dimensions de int symbolisant la carte de jeu 
 											//( 0 = bloc de fond, 1 = blocs de pierre )
 		
