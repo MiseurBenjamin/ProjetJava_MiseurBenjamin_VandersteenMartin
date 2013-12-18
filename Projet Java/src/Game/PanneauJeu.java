@@ -286,12 +286,21 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 				}
 			}
 			
-			if(player1Rec.intersects(player2Rec)){					//Collisions entre joueurs, peut-être à retirer?
-				String PlayerDir = player1.getPlayerDir();
-				if( PlayerDir=="BAS") player1.addY(-4);				//Mouvement du joueurs 1 dans le sens opposé à la collisions
-				if( PlayerDir=="HAUT") player1.addY(+4);			//à changer : Vérifier les booléens de déplaçements pour  savoir
-				if( PlayerDir=="GAUCHE") player1.addX(+4);			//quel joueur doit être déplaçé.
-				if( PlayerDir=="DROITE") player1.addX(-4);					
+			if(player1Rec.intersects(player2Rec)){ 					//Collisions entre joueurs, peut-être à retirer?
+				if(player1.isMoving()){
+					String PlayerDir = player1.getPlayerDir();
+					if( PlayerDir=="BAS") player1.addY(-4);				//Mouvement du joueurs 1 dans le sens opposé à la collisions
+					if( PlayerDir=="HAUT") player1.addY(+4);			//à changer : Vérifier les booléens de déplaçements pour  savoir
+					if( PlayerDir=="GAUCHE") player1.addX(+4);			//quel joueur doit être déplaçé.
+					if( PlayerDir=="DROITE") player1.addX(-4);
+				}
+				if(player2.isMoving()){
+					String PlayerDir = player2.getPlayerDir();
+					if( PlayerDir=="BAS") player2.addY(-4);				//Mouvement du joueurs 1 dans le sens opposé à la collisions
+					if( PlayerDir=="HAUT") player2.addY(+4);			//à changer : Vérifier les booléens de déplaçements pour  savoir
+					if( PlayerDir=="GAUCHE") player2.addX(+4);			//quel joueur doit être déplaçé.
+					if( PlayerDir=="DROITE") player2.addX(-4);
+				}
 			}
 			if((player1.getY()>535)||(player1.getY()<0)) initArrayList();		//Vérification des sorties de map et reset en conséquence
 			if((player1.getX()>685)||(player1.getX()<0)) initArrayList();

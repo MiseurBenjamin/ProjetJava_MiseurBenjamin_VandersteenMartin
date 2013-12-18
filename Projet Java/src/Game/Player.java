@@ -109,6 +109,10 @@ public class Player {
 		}		
 	}
 
+	public boolean isMoving(){
+		return haut || bas || gauche || droite;
+	}
+	
 	public boolean isHaut() {
 		return haut;
 	}
