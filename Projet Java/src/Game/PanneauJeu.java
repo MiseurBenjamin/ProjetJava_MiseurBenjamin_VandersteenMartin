@@ -67,7 +67,7 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 				}
 			}
 		}
-		while(stop2==0){							//Création et placement du joueur 2
+		while(stop2==0){							//Création et placement du joueur 2 
 			for(i=0;i<20;i++){
 				for(j=0;j<15;j++){
 					if(this.niveau.getLvl()[i][j]==0){

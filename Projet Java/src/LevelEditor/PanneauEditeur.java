@@ -13,39 +13,46 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
  
+
+/**
+ * Cette classe est le panneau de l'éditeur de jeu, il gère l'entiereté de celui-ci.
+ * @author MartinVandersteen
+ *
+ */
+
 @SuppressWarnings("serial")
 public class PanneauEditeur extends JPanel { 
-	DataOutputStream dos = null;
-	ImageIcon IIblock = new ImageIcon(getClass().getResource("/img/block.png"));
+	DataOutputStream dos = null;												//On crée un DOS pour pouvoir enregistrer les modifications
+	ImageIcon IIblock = new ImageIcon(getClass().getResource("/img/block.png"));	//On récupère les images de blocs et du fond
 	private Image block = IIblock.getImage();
 	ImageIcon IIfond = new ImageIcon(getClass().getResource("/img/fond.png"));
 	private Image fond = IIfond.getImage();
-	level niveau;
+	level niveau;																//Variable contenant un objet level	
 	
-	public PanneauEditeur(){
+	public PanneauEditeur(){	
 		super();
-		niveau = new level();
-		addMouseListener(new MouseAdapter() {
+		niveau = new level();													//On instancie un objet level
+		addMouseListener(new MouseAdapter() {									//On ajoute un mouseListener sur le panel qui ajoute ou supprime un bloc
             @Override
             public void mouseClicked(MouseEvent e) {
             	niveau.inverserLvl(e.getX()/34,e.getY()/34);
             	repaint();
-            	save();	
+            	save();															//On sauvegarde le changement
             }
         });
 	}
 	
-	public void save(){
+	public void save(){												//Fonction de sauvegarde
 		try {
 			dos = new DataOutputStream(
 			        new BufferedOutputStream(
 			         new FileOutputStream(
-			           new File("level.txt"))));
+			           new File("level.txt"))));					//On initialise le DOS
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-	      for(int i = 0;i<20;i++){
+      for(int i = 0;i<20;i++){									//On enregistre le niveau modifié dans le fichier level.txt
 	    	  for(int j = 0;j<15;j++){
 	    		  try {
 					dos.writeInt(niveau.getLvl()[i][j]);
@@ -56,14 +63,14 @@ public class PanneauEditeur extends JPanel {
 	    	  }
 	      }
 	    try {
-			dos.close();
+			dos.close();										//On ferme ensuite le DOS
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-  public void paintComponent(Graphics g){
+  public void paintComponent(Graphics g){						//Fonction d'affichage des différents blocs, un par un.
 	  for(int i = 0;i<20;i++){
     	  for(int j = 0;j<15;j++){
     		  if(niveau.getLvl()[i][j]==1){

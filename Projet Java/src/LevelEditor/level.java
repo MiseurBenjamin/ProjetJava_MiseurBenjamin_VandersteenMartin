@@ -8,13 +8,17 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * Cette classe représente la carte de jeu sous forme d'un tableau à deux dimensions de int (0 = fond, 1 = bloc ).
+ * @author MartinVandersteen
+ *
+ */
 
 public class level {
 	private int lvl[][];
 	DataInputStream dis;
-	DataOutputStream dos;
 	
-	public level() {
+	public level() {				//On lit ce qu'il est écrit dans le fichier level.txt
 		lvl = new int[20][15];
 		try {
 			dis = new DataInputStream(
@@ -28,8 +32,7 @@ public class level {
 		      }
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("File not found level");
+			System.out.println("File not found level.txt, fichier créé.");		//Si on ne trouve pas le fichier on le crée
 			new FileInit();
 		} catch (EOFException e) {
 			new FileInit();
@@ -40,11 +43,11 @@ public class level {
 		
 	}
 	
-	public int[][] getLvl(){
+	public int[][] getLvl(){								//Renvoie la map sous forme de tableau
 		return this.lvl;
 	}
 	
-	public void inverserLvl(int x, int y){
+	public void inverserLvl(int x, int y){			//Inverse une case en fonction de ses coordonnées dans le tableau (coordonnées graphiques /34 )
 		if(this.lvl[x][y]==0) this.lvl[x][y] = 1;
 		else this.lvl[x][y] = 0;
 	}
