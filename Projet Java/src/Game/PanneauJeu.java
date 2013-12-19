@@ -53,7 +53,7 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	public void initArrayList(){
 		int stop1=0,stop2=0,i,j;
 		blocks = new ArrayList<Block>();
-		fonds = new Arrayist<Fond>();
+		fonds = new ArrayList<Fond>();
 		shots = new ArrayList<Shot>();
 		int lvlCopy[][] = niveau.getLvl(); //Le tableau à deux dimensions de int symbolisant la carte de jeu 
 											//( 0 = bloc de fond, 1 = blocs de pierre )
