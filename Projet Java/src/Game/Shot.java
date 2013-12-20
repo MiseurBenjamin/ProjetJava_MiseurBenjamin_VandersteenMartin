@@ -24,6 +24,10 @@ public class Shot {
 		this.Dir = Dir;
 	}
 	
+	/**
+	 * Mouvement du tir, 11px par rafraichissement
+	 * @return void
+	 */
 	public void Move(){								//Mouvement du tir, 11px par rafraichissement
 		if(Dir=="BAS") this.y+=11;
 		if(Dir=="HAUT") this.y-=11;
@@ -31,23 +35,43 @@ public class Shot {
 		if(Dir=="DROITE") this.x+=11;
 	}
 	
+	/**
+	 * Méthode de calcul de Hitbox du tir
+	 * @return Rectangle
+	 */
 	public Rectangle getBounds(){					//Méthode de calcul de Hitbox du tir
 		Rectangle box = new Rectangle(x,y,16,16);
 		return box;
 	}
 	
+	/**
+	 * Renvoie l'image du tir
+	 * @return Image
+	 */
 	public Image getImage(){						//Renvoie l'image du tir
 		return shot;
 	}
 	
+	/**
+	 * 
+	 * @return int
+	 */
 	public int getX() {
 		return x;
 	}
-
+	
+	/**
+	 * 
+	 * @return int
+	 */
 	public int getY() {
 		return y;
 	}
-
+	
+	/**
+	 * 
+	 * @return int
+	 */
 	public int getNum() {
 		return num;
 	}

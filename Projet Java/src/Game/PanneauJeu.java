@@ -49,6 +49,7 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	/**
 	 * initArrayList() initalises les ArrayLists de blocs et fond en fonction du fichier level.txt et crée 2 variables de type Player
 	 * pour représenter les 2 joueurs dans le jeu.
+	 * @return void
 	 */
 	public void initArrayList(){
 		int stop1=0,stop2=0,i,j;
@@ -100,6 +101,8 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	
 	/**
 	 * La fonction paint, utilisée au travers de repaint(), gère tout l'affichage et la remise à zéro du round quand un joueur n'a plus de pdv.
+	 * @param g
+	 * @return void
 	 */
 	public void paint(Graphics g){ 
 		
@@ -142,6 +145,8 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	/**
 	 * Gère tous les inputs clavier de déplacement (Z,Q,S,D = joueur2, haut,bas,gauche,droite = joueur1).
 	 * Met à "true" les booléens de déplacement adéquats.
+	 * @param arg0
+	 * @return void
 	 */
 	@Override
 	public void keyPressed(KeyEvent arg0) {
@@ -186,6 +191,8 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	/**
 	 * Gère tous les inputs clavier de tir (SHIFT = joueur2, ESPACE = joueur1).
 	 * Met à "false" les booléens de déplacement adéquats.
+	 * @param arg0
+	 * @return void
 	 */
 		@Override
 		public void keyReleased(KeyEvent arg0) {
@@ -241,6 +248,7 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 		
 		/**
 		 * Gestion de toutes les collisions et des sorties de map
+		 * @return void
 		 */
 		public void CheckCollision(){
 			Rectangle player1Rec,player2Rec;
@@ -313,6 +321,8 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 
 /**
  * Actions effectuées par le Timer toutes les 0,025 secondes
+ * @param arg0
+ * @return void
  * 
  */
 		@Override

@@ -21,14 +21,26 @@ public class Fond {
 		this.y = Y;
 	}
 	
+	/**
+	 * Renvoie l'image de fond
+	 * @return Image
+	 */
 	public Image getImage(){				//Renvoie l'image de fond
 		return fond;
 	}
 	
+	/**
+	 * 
+	 * @return int
+	 */
 	public int getX() {
 		return x;
 	}
 
+	/**
+	 * 
+	 * @return int
+	 */
 	public int getY() {
 		return y;
 	}
