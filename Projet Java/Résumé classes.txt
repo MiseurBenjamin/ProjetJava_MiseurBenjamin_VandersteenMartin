@@ -1,0 +1,85 @@
+Game :
+
+-Block
+-Fond
+-PanneauJeu
+-Player
+-Shot
+-------------
+LevelEditor :
+
+-FileInit
+-level
+-MainFrame
+-PanneauEditeur
+-------------
+
+
+Block
+private int x,y
+private Image block
+
+Rectangle getBounds
+-------------
+Fond
+private int x,y
+private Image fond
+-------------
+PanneauJeu
+level niveau
+private Timer timer
+private ArrayList<Block> blocks
+- ArrayList<Fond> fonds
+- ArrayList<Shot> shots
+- Player player1,player2
+- int p1Points,p2Points
+
++ void initArrayList()
++ void paint(Graphics g)
++ void checkCollision()
++ void keyPressed(KeyEvent e)
++ void keyReleased(KeyEvent e)
++ void actionPerformed(ActionEvent arg0)
+-------------
+Player
+private int x,y,num,life
+private string playerDir
+private Image playerBas,playerGauche,playerDroite,playerHaut
+private boolean haut,bas,gauche,droite
+
+Rectangle getBounds
+public void Move()
+public void setPlayerDir(String s)
+public boolean isMoving()
+-------------
+Shot
+private int x,y,num
+private String Dir
+private Image shot
+
+public void Move()
+public Rectangle getBounds()
+-------------
+-------------
+-------------
+FileInit
+-------------
+level
+private int lvl[][]
+DataInputStream dis
+
+public int[][] getLvl()
+public void inverserLvl()
+-------------
+MainFrame
+-------------
+PanneauEditeur
+DataOutputStream dos
+private Image Block
+private Image Fond
+level niveau
+
+public void save()
+public void paintComponent(Graphics g)
+
+
