@@ -28,7 +28,7 @@ import LevelEditor.level;
 @SuppressWarnings("serial")
 public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	level niveau = new level(); //La carte du niveau
-	private final Timer timer = new Timer(30,this); //Le timer à 40Hz
+	private final Timer timer = new Timer(30,this); //Le timer à 33Hz
 	static private ArrayList<Block> blocks; //Les blocs et leurs coordonnées
 	static private ArrayList<Fond> fonds; //Les blocs de fond
 	static private ArrayList<Shot> shots; //Les tirs en cours de déplacement
@@ -145,7 +145,7 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	/**
 	 * Gère tous les inputs clavier de déplacement (Z,Q,S,D = joueur2, haut,bas,gauche,droite = joueur1).
 	 * Met à "true" les booléens de déplacement adéquats.
-	 * @param arg0
+	 * @param arg0 Evênement d'input clavier
 	 * @return void
 	 */
 	@Override
@@ -191,8 +191,8 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 	/**
 	 * Gère tous les inputs clavier de tir (SHIFT = joueur2, ESPACE = joueur1).
 	 * Met à "false" les booléens de déplacement adéquats.
-	 * @param arg0
-	 * @return void
+	 * @param arg0 Evênement d'input clavier
+	 * 
 	 */
 		@Override
 		public void keyReleased(KeyEvent arg0) {
@@ -320,8 +320,8 @@ public class PanneauJeu extends JPanel implements KeyListener, ActionListener{
 		}
 
 /**
- * Actions effectuées par le Timer toutes les 0,025 secondes
- * @param arg0
+ * Actions effectuées par le Timer toutes les 0,030 secondes
+ * @param arg0 L'évenement géneré par le Timer
  * @return void
  * 
  */

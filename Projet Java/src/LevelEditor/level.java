@@ -1,7 +1,6 @@
 package LevelEditor;
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,10 +42,19 @@ public class level {
 		
 	}
 	
+	/**
+	 * 
+	 * @return int[][] Le niveau sous forme de tableau binaire ( 0 = fond, 1 = block de pierre )
+	 */
 	public int[][] getLvl(){								//Renvoie la map sous forme de tableau
 		return this.lvl;
 	}
 	
+	/**
+	 * 
+	 * @param x Indice horizontal de la case à inverser dans le tableau
+	 * @param y Indice vertical de la case à inverser dans le tableau
+	 */
 	public void inverserLvl(int x, int y){			//Inverse une case en fonction de ses coordonnées dans le tableau (coordonnées graphiques /34 )
 		if(this.lvl[x][y]==0) this.lvl[x][y] = 1;
 		else this.lvl[x][y] = 0;

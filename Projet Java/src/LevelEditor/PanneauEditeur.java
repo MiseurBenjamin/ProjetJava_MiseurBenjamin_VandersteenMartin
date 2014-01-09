@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  
 
 /**
- * Cette classe est le panneau de l'éditeur de jeu, il gère l'entiereté de celui-ci.
+ * Cette classe est le panneau de l'éditeur de jeu, il gère l'entièreté de celui-ci.
  * @author MartinVandersteen
  *
  */
@@ -29,6 +29,9 @@ public class PanneauEditeur extends JPanel {
 	private Image fond = IIfond.getImage();
 	level niveau;																//Variable contenant un objet level	
 	
+	/**
+	 * On crée un PanneauEditeur avec un MouseAdapter qui change la valeure de la case sur laquelle on clique ( 0 ou 1 )
+	 */
 	public PanneauEditeur(){	
 		super();
 		niveau = new level();													//On instancie un objet level
@@ -42,6 +45,9 @@ public class PanneauEditeur extends JPanel {
         });
 	}
 	
+	/**
+	 * Fonction de sauvegarde sur fichier des modifications apportées
+	 */
 	public void save(){												//Fonction de sauvegarde
 		try {
 			dos = new DataOutputStream(
@@ -70,6 +76,10 @@ public class PanneauEditeur extends JPanel {
 		}
 	}
 	
+/**
+ * Fonction d'affichage des différents blocs
+ * @param g
+ */
   public void paintComponent(Graphics g){						//Fonction d'affichage des différents blocs, un par un.
 	  for(int i = 0;i<20;i++){
     	  for(int j = 0;j<15;j++){

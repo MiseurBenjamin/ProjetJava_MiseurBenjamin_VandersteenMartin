@@ -23,7 +23,7 @@ public class Fond {
 	
 	/**
 	 * Renvoie l'image de fond
-	 * @return Image
+	 * @return Image L'image d'un bloc "fond"
 	 */
 	public Image getImage(){				//Renvoie l'image de fond
 		return fond;
@@ -31,7 +31,7 @@ public class Fond {
 	
 	/**
 	 * 
-	 * @return int
+	 * @return int La position horizontale du bloc de fond
 	 */
 	public int getX() {
 		return x;
@@ -39,7 +39,7 @@ public class Fond {
 
 	/**
 	 * 
-	 * @return int
+	 * @return int La position verticale du bloc de fond
 	 */
 	public int getY() {
 		return y;

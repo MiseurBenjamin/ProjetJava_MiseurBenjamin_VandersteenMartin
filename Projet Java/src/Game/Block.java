@@ -23,7 +23,7 @@ public class Block {
 	
 	/**
 	 * Calcul de Hitbox du bloc
-	 * @return Rectangle
+	 * @return Rectangle représentant les limites du bloc
 	 */
 	public Rectangle getBounds(){				//Calcul de Hitbox du bloc
 		Rectangle box = new Rectangle(x,y,33,33);
@@ -32,7 +32,7 @@ public class Block {
 
 	/**
 	 * 
-	 * @return int
+	 * @return int La position horizontale du bloc
 	 */
 	public int getX() {			
 		return x;
@@ -40,7 +40,7 @@ public class Block {
 
 	/**
 	 * 
-	 * @return int
+	 * @return int La position verticale du bloc
 	 */
 	public int getY() {
 		return y;
@@ -48,7 +48,7 @@ public class Block {
 	
 	/**
 	 * Renvoie l'image du bloc
-	 * @return Image
+	 * @return Image L'image du bloc
 	 */
 	public Image getImage(){					//Renvoie l'image du bloc
 		return block;

@@ -37,7 +37,7 @@ public class Shot {
 	
 	/**
 	 * Méthode de calcul de Hitbox du tir
-	 * @return Rectangle
+	 * @return Rectangle Les limites du tir
 	 */
 	public Rectangle getBounds(){					//Méthode de calcul de Hitbox du tir
 		Rectangle box = new Rectangle(x,y,16,16);
@@ -46,7 +46,7 @@ public class Shot {
 	
 	/**
 	 * Renvoie l'image du tir
-	 * @return Image
+	 * @return Image L'icone du tir
 	 */
 	public Image getImage(){						//Renvoie l'image du tir
 		return shot;
@@ -54,7 +54,7 @@ public class Shot {
 	
 	/**
 	 * 
-	 * @return int
+	 * @return int Position horizontale du tir
 	 */
 	public int getX() {
 		return x;
@@ -62,7 +62,7 @@ public class Shot {
 	
 	/**
 	 * 
-	 * @return int
+	 * @return int Position verticale du tir
 	 */
 	public int getY() {
 		return y;
@@ -70,7 +70,7 @@ public class Shot {
 	
 	/**
 	 * 
-	 * @return int
+	 * @return int Le numero du joueur qui a tiré le tir
 	 */
 	public int getNum() {
 		return num;

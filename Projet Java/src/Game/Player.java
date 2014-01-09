@@ -37,22 +37,20 @@ public class Player {
 				
 	/**
 	 * 
-	 * @return int
+	 * @return int Le nombre de vie restantes du joueur
 	 */
 	public int getLife() {							//Setters et Getters divers	
 		return life;
 	}
 	/**
-	 * @param life
-	 * @return void
+	 * @param life La nouvelle valeur de la vie du joueur ( > 0 )
 	 */
 	public void setLife(int life) {
 		this.life = life;
 	}
 	
 	/**
-	 * @param life
-	 * @return void
+	 * @param life Le nombre de vies à ajouter ( ou retirer dans le cas d'un nombre négatif )
 	 */
 	public void addLife(int life){
 		this.life += life;
@@ -60,7 +58,7 @@ public class Player {
 
 	/**
 	 * Fonction de calcul de la Hitbox des joueurs
-	 * @return Rectangle
+	 * @return Rectangle Représentant les limites du joueur pour les collisions
 	 */
 	public Rectangle getBounds(){					//Fonction de calcul de la Hitbox des joueurs
 		Rectangle box = new Rectangle(x,y,30,26);
@@ -69,14 +67,14 @@ public class Player {
 
 	/**
 	 * 
-	 * @return int
+	 * @return int La position horizontale du joueur
 	 */
 	public int getX() {								//Setters et Getters divers	
 		return x;
 	}
 
 	/**
-	 * @param newX
+	 * @param newX Nouvelle position horizontale du joueur
 	 * @return void
 	 */
 	public void setX(int newX) {
@@ -85,14 +83,14 @@ public class Player {
 
 	/**
 	 * 
-	 * @return int
+	 * @return int La position verticale du joueur
 	 */
 	public int getY() {
 		return y;
 	}
 
 	/**
-	 * @param newY
+	 * @param newY La nouvelle position verticale du joueur
 	 * @return void
 	 */
 	public void setY(int newY) {
@@ -100,7 +98,7 @@ public class Player {
 	}
 	
 	/**
-	 * @param add
+	 * @param add La valeur à ajouter à la position verticale du joueur
 	 * @return void
 	 */
 	public void addY(int add){						//Setters et Getters divers	
@@ -108,7 +106,7 @@ public class Player {
 	}
 	
 	/**
-	 * @param add
+	 * @param add La valeur à ajouter à la position horizontale du joueur
 	 * @return void
 	 */
 	public void addX(int add){
@@ -116,8 +114,8 @@ public class Player {
 	}	
 
 	/**
-	 * 
-	 * @return String
+	 * Renvoie la direction du joueur.
+	 * @return String Le direction actuelle du joueur
 	 */
 	public String getPlayerDir() {
 		return playerDir;
@@ -125,8 +123,7 @@ public class Player {
 
 	/**
 	 * Changement de la direction du joueur
-	 * @param newPlayerDir
-	 * @return void
+	 * @param newPlayerDir Nouvelle direction du joueur.
 	 */
 	public void setPlayerDir(String newPlayerDir) {				//Changement de la direction du joueur
 		this.playerDir = newPlayerDir;
@@ -134,7 +131,7 @@ public class Player {
 	
 	/**
 	 * Fonction renvoyant l'image correspondant à la direction du joueur
-	 * @return Image
+	 * @return Image L'image du joueur.
 	 */
 	public Image getImage(){									//Fonction renvoyant l'image correspondant à la direction du joueur
 		if(playerDir == "BAS"){
@@ -176,14 +173,14 @@ public class Player {
 
 	/**
 	 * Renvoie si le joueur est en mouvement ou pas
-	 * @return boolean
+	 * @return boolean Etat de déplacement du joueur ( en mouvement ou pas )
 	 */
 	public boolean isMoving(){								//Renvoie si le joueur est en mouvement ou pas
 		return haut || bas || gauche || droite;
 	}
 
 	/**
-	 * @param haut
+	 * @param haut booléen de déplacement vers le haut
 	 * @return void
 	 */
 	public void setHaut(boolean haut) {
@@ -191,7 +188,7 @@ public class Player {
 	}
 
 	/**
-	 * @param bas
+	 * @param bas booléen de déplacement vers le bas
 	 * @return void
 	 */
 	public void setBas(boolean bas) {
@@ -199,7 +196,7 @@ public class Player {
 	}
 
 	/**
-	 * @param gauche
+	 * @param gauche booléen de déplacement vers la gauche
 	 * @return void
 	 */
 	public void setGauche(boolean gauche) {
@@ -207,7 +204,7 @@ public class Player {
 	}
 
 	/**
-	 * @param droite
+	 * @param droite booléen de déplacement vers la droite
 	 * @return void
 	 */
 	public void setDroite(boolean droite) {
